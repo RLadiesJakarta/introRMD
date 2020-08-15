@@ -1,0 +1,111 @@
+---
+title: "Introduction to RMarkdown"
+author: "Ulfah Mardhiah"
+date: "8/15/2020"
+output: word_document
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+# Apakah itu R Markdown?
+
+$\text{\underline{This sentence underlined using \LaTeX}}$
+- Merupakan interface yang tersedia dalam R Studio yang bisa digunakan untuk "merajut" teks, kode, gambar, dsb, untuk menghasilkan sebuah output yang sudah terformat dengan rapi.   
+- Menggunakan berbagai bahasa, termasuk R, Python, SQL, dan Latex. 
+
+# Dokumen yang bisa dihasilkan dalam R Markdown.
+
+HTML, PDF, MS Word, Beamer, HTML5 Slides, buku, handout, shiny applications, artikel saintifik, website, dan banyak lagi. 
+
+# Contoh
+
+Memasukkan gambar dari file .jpg atau .png yang sudah disimpan dalam folder yang sama dengan tempat skrip R Markdown disimpan: 
+
+![https://lwlies.com/reviews/ponyo/](ponyo.jpg){width=120%}
+
+# Contoh
+
+Menuliskan persamaan di dalam teks $E = m\times c^2$ atau di tengah halaman: 
+
+$$Y = fixed.part + random.part$$ $$\alpha + \beta_1 + .. + \beta_q X_q$$ 
+
+
+# Contoh
+
+Membuat teks berukuran 
+\tiny
+kecil, lalu menjadikannya 
+\normalsize
+normal kembali
+
+# Contoh
+
+Membuat bullet points:  
+* Bullet points pertama   
+* Bullet points kedua  
+* Bullet points ketiga
+
+# Contoh
+
+Membuat teks yang dijadikan **Italic** atau *bold*. 
+
+# Contoh
+
+Memasukkan hyperlink: [github R Ladies](https://github.com/RLadiesJakarta/)
+
+# Contoh
+Membuat teks dengan format "R": `library(ggplot2)`.
+
+# Contoh
+
+Memunculkan output hasil running skrip R (skrip dari website [R Graph Gallery](https://www.r-graph-gallery.com/)):
+
+```{r}
+library(ggplot2)
+library(viridis)
+library(hrbrthemes)
+hrbrthemes::import_roboto_condensed()
+# create a dataset
+specie <- c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
+condition <- rep(c("normal" , "stress" , "Nitrogen") , 4)
+value <- abs(rnorm(12 , 0 , 15))
+data <- data.frame(specie,condition,value)
+ 
+# Small multiple
+ggplot(data, aes(fill=condition, y=value, x=specie)) + 
+    geom_bar(position="stack", stat="identity") +
+    scale_fill_viridis(discrete = T) +
+    ggtitle("Studying 4 species..") +
+    xlab("")
+```
+
+# Contoh
+
+Atau me-run skrip R sekaligus melihat skrip yg digunakan: 
+
+```{r, echo=T}
+y=2*8
+z=6.5+8.13
+x=y*z^2
+x
+```
+
+# Contoh
+
+Memasukkan tabel: 
+
+| Tanggal | Tanggal merah Agustus  |
+|---------|------------------------|
+|  16     | Hari Minggu            |
+|  17     | Hari kemerdekaan       |
+|  20     | Tahun baru Hijriah     |
+|  21     | Libur Bersama          |
+|  22     | Hari Sabtu             |
+
+# Latihan!
+
+Gunakan file R Markdown yang dipakai untuk menghasilkan dokumen ini, dan gantilah setiap contoh yang ada menggunakan skrip atau teks dan gambar anda sendiri. Kita akan diskusikan beberapa hasil running 20 menit dari sekarang. Silakan berdiskusi kalau ada yg ingin ditanyakan melalui chat. 
